@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="[YOUR BRAND NAME] — Freshly baked cakes, desserts and more. Order online for same-day delivery." />
+  <title>[YOUR BRAND NAME] — Freshly Baked With Love</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Font Awesome 6 Free (CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════
+     PROMO BAR
+════════════════════════════════════════════════════════════ -->
+  <div class="promo-bar" id="promo-bar" role="banner">
+    <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    Free Delivery on Orders Over ৳999 &nbsp;|&nbsp; 15% OFF with Code: <strong>BAKE15</strong>
+    <button class="promo-bar__close" aria-label="Close announcement" onclick="this.parentElement.style.display='none'">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+     SITE HEADER  (sticky)
+════════════════════════════════════════════════════════════ -->
+  <header class="site-header" role="banner">
+
+    <!-- Top bar -->
+    <div class="header-top">
+      <div class="container header-top__inner">
+
+        <!-- Hamburger (mobile only) -->
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu" aria-expanded="false"
+          aria-controls="mobile-drawer">
+          <span></span><span></span><span></span>
+        </button>
+
+        <!-- Logo -->
+        <a href="/" class="site-logo" aria-label="[YOUR BRAND NAME] – Home">
+          <i class="fa-solid fa-cake-candles" aria-hidden="true"></i>
+          [YOUR BRAND<span> NAME</span>]
+        </a>
+
+        <!-- Location selector (desktop) -->
+        <div class="location-wrap" style="display:none" id="location-wrap-desktop">
+          <button class="location-btn" id="location-btn" aria-haspopup="true" aria-expanded="false"
+            aria-label="Change delivery city">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+            <span>
+              <span class="location-label">Delivering To</span>
+              <span class="location-city">Dhaka</span>
+            </span>
+            <i class="fa-solid fa-chevron-down" aria-hidden="true" style="font-size:.7rem"></i>
+          </button>
+          <div class="location-popup" id="location-popup" role="listbox" aria-label="Select city">
+            <div data-city="Dhaka" role="option" tabindex="0"><i class="fa-solid fa-location-dot"
+                aria-hidden="true"></i> Dhaka</div>
+            <div data-city="Chittagong" role="option" tabindex="0"><i class="fa-solid fa-location-dot"
+                aria-hidden="true"></i> Chittagong</div>
+            <div data-city="Sylhet" role="option" tabindex="0"><i class="fa-solid fa-location-dot"
+                aria-hidden="true"></i> Sylhet</div>
+            <div data-city="Rajshahi" role="option" tabindex="0"><i class="fa-solid fa-location-dot"
+                aria-hidden="true"></i> Rajshahi</div>
+            <div data-city="Khulna" role="option" tabindex="0"><i class="fa-solid fa-location-dot"
+                aria-hidden="true"></i> Khulna</div>
+          </div>
+        </div>
+
+        <!-- Search bar (desktop) -->
+        <div class="header-search" role="search">
+          <label for="desktop-search" class="sr-only">Search cakes, desserts…</label>
+          <input id="desktop-search" type="search" placeholder="Search cakes, desserts…" autocomplete="off" />
+          <button class="header-search__btn" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <!-- Action icons -->
+        <nav class="header-actions" aria-label="Quick actions">
+          <a href="#" class="header-action-btn" aria-label="Track your order">
+            <i class="fa-solid fa-box icon" aria-hidden="true"></i>
+            <span>Track</span>
+          </a>
+          <a href="#" class="header-action-btn" aria-label="View cart" style="position:relative">
+            <i class="fa-solid fa-cart-shopping icon" aria-hidden="true"></i>
+            <span>Cart</span>
+            <span class="cart-badge" aria-live="polite" aria-label="items in cart" style="display:none">0</span>
+          </a>
+          <a href="#" class="header-action-btn" aria-label="Login or sign up">
+            <i class="fa-solid fa-user icon" aria-hidden="true"></i>
+            <span>Login</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Mobile search row -->
+    <div class="header-search-mobile" role="search">
+      <label for="mobile-search" class="sr-only">Search cakes, desserts…</label>
+      <div class="mobile-search-wrap">
+        <i class="fa-solid fa-magnifying-glass mobile-search-icon" aria-hidden="true"></i>
+        <input id="mobile-search" type="search" placeholder="Search cakes, desserts…" autocomplete="off" />
+      </div>
+    </div>
+
+    <!-- Navigation Bar (Pill Container) -->
+    <nav class="pill-nav-wrapper" id="pill-nav" aria-label="Main navigation">
+      <div class="pill-nav-container">
+        <ul class="pill-nav-list" id="pill-nav-list">
+          <!-- 1. Home (Active) -->
+          <li class="pill-nav-item">
+            <a href="#" class="pill-nav-link is-active" data-section="home">
+              <svg class="pill-nav-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"
+                aria-hidden="true">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+              </svg>
+              <span>Home</span>
+            </a>
+          </li>
+
+          <li class="pill-divider" aria-hidden="true"></li>
+
+          <!-- 2. Sweets (Dropdown) -->
+          <li class="pill-nav-item has-dropdown">
+            <button class="pill-nav-link dropdown-toggle" aria-expanded="false" aria-haspopup="true"
+              data-section="sweets">
+              <svg class="pill-nav-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path
+                  d="M18 10h-1.3A5.5 5.5 0 0 0 6.3 10H5a3 3 0 0 0-3 3c0 1.5 1 2.7 2.4 3l1.1 5.5a2 2 0 0 0 2 1.5h9a2 2 0 0 0 2-1.5l1.1-5.5c1.4-.3 2.4-1.5 2.4-3a3 3 0 0 0-3-3z" />
+                <circle cx="12" cy="4" r="2" fill="currentColor" />
+              </svg>
+              <span>Sweets</span>
+              <svg class="chevron-icon" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <ul class="nav-dropdown-menu" role="menu">
+              <li role="none"><a href="#menu-heading" role="menuitem">Rasgulla</a></li>
+              <li role="none"><a href="#menu-heading" role="menuitem">Gulab Jamun</a></li>
+              <li role="none"><a href="#menu-heading" role="menuitem">Sandesh</a></li>
+              <li role="none"><a href="#menu-heading" role="menuitem">Mishti Doi</a></li>
+              <li role="none"><a href="#menu-heading" role="menuitem">Chomchom</a></li>
+            </ul>
+          </li>
+
+          <li class="pill-divider" aria-hidden="true"></li>
+
+          <!-- 3. Cakes (Dropdown) -->
+          <li class="pill-nav-item has-dropdown">
+            <button class="pill-nav-link dropdown-toggle" aria-expanded="false" aria-haspopup="true"
+              data-section="cakes">
+              <svg class="pill-nav-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 17h18l-9-9-9 9z" />
+                <path d="M3 17v4h18v-4" />
+                <circle cx="12" cy="5" r="1.5" fill="currentColor" />
+                <path d="M12 6.5v1.5" />
+              </svg>
+              <span>Cakes</span>
+              <svg class="chevron-icon" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <ul class="nav-dropdown-menu" role="menu">
+              <li role="none"><a href="#bestsellers" role="menuitem">Chocolate</a></li>
+              <li role="none"><a href="#bestsellers" role="menuitem">Birthday</a></li>
+              <li role="none"><a href="#bestsellers" role="menuitem">Wedding</a></li>
+              <li role="none"><a href="#bestsellers" role="menuitem">Custom Cakes</a></li>
+            </ul>
+          </li>
+
+          <li class="pill-divider" aria-hidden="true"></li>
+
+          <!-- 4. Ice Cream (Dropdown) -->
+          <li class="pill-nav-item has-dropdown">
+            <button class="pill-nav-link dropdown-toggle" aria-expanded="false" aria-haspopup="true"
+              data-section="ice-cream">
+              <svg class="pill-nav-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m7 11 5 11 5-11" />
+                <path d="M12 3a5 5 0 0 0-5 5c0 .7.1 1.4.4 2h9.2c.3-.6.4-1.3.4-2a5 5 0 0 0-5-5z" />
+              </svg>
+              <span>Ice Cream</span>
+              <svg class="chevron-icon" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <ul class="nav-dropdown-menu" role="menu">
+              <li role="none"><a href="#menu-heading" role="menuitem">Vanilla</a></li>
+              <li role="none"><a href="#menu-heading" role="menuitem">Chocolate</a></li>
+              <li role="none"><a href="#menu-heading" role="menuitem">Mango</a></li>
+              <li role="none"><a href="#menu-heading" role="menuitem">Kulfi</a></li>
+            </ul>
+          </li>
+
+          <li class="pill-divider" aria-hidden="true"></li>
+
+          <!-- 5. Desserts (Dropdown) -->
+          <li class="pill-nav-item has-dropdown">
+            <button class="pill-nav-link dropdown-toggle" aria-expanded="false" aria-haspopup="true"
+              data-section="desserts">
+              <svg class="pill-nav-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 8h16a8 8 0 0 1-8 8 8 8 0 0 1-8-8z" />
+                <path d="M12 16v5" />
+                <path d="M8 21h8" />
+                <circle cx="12" cy="5" r="2" fill="currentColor" />
+              </svg>
+              <span>Desserts</span>
+              <svg class="chevron-icon" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <ul class="nav-dropdown-menu" role="menu">
+              <li role="none"><a href="#menu-heading" role="menuitem">Pudding</a></li>
+              <li role="none"><a href="#menu-heading" role="menuitem">Brownies</a></li>
+              <li role="none"><a href="#menu-heading" role="menuitem">Cheesecake</a></li>
+              <li role="none"><a href="#menu-heading" role="menuitem">Pastry</a></li>
+            </ul>
+          </li>
+
+          <li class="pill-divider" aria-hidden="true"></li>
+
+          <!-- 6. About Us -->
+          <li class="pill-nav-item">
+            <a href="#promise-heading" class="pill-nav-link" data-section="about">
+              <svg class="pill-nav-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+              <span>About Us</span>
+            </a>
+          </li>
+
+          <li class="pill-divider" aria-hidden="true"></li>
+
+          <!-- 7. Contact -->
+          <li class="pill-nav-item">
+            <a href="#newsletter-form" class="pill-nav-link" data-section="contact">
+              <svg class="pill-nav-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="20" height="16" x="2" y="4" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+              <span>Contact</span>
+            </a>
+          </li>
+
+          <li class="pill-divider" aria-hidden="true"></li>
+
+          <!-- 8. Gallery -->
+          <li class="pill-nav-item">
+            <a href="#gallery-heading" class="pill-nav-link" data-section="gallery">
+              <svg class="pill-nav-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                <circle cx="9" cy="9" r="2" />
+                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+              </svg>
+              <span>Gallery</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Far Right: Cart Button in Light Pink Pill -->
+        <a href="#bestsellers" class="pill-cart-btn" aria-label="View shopping cart">
+          <svg class="pill-cart-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="8" cy="21" r="1" />
+            <circle cx="19" cy="21" r="1" />
+            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+          </svg>
+          <span class="pill-cart-text">Cart</span>
+          <span class="cart-badge" aria-live="polite">0</span>
+        </a>
+      </div>
+    </nav>
+
+  </header>
+
+  <!-- Mobile drawer overlay -->
+  <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
+
+  <!-- Mobile drawer -->
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Navigation menu" aria-hidden="true">
+    <div class="drawer-header">
+      <span class="drawer-logo">
+        <i class="fa-solid fa-cake-candles" aria-hidden="true"></i> [YOUR BRAND NAME]
+      </span>
+      <button class="drawer-close" id="drawer-close" aria-label="Close menu">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!-- Location (mobile) -->
+    <div class="drawer-location">
+      <div class="drawer-location__label">
+        <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Delivering To
+      </div>
+      <select aria-label="Select city" class="drawer-location__select">
+        <option>Dhaka</option>
+        <option>Chittagong</option>
+        <option>Sylhet</option>
+        <option>Rajshahi</option>
+        <option>Khulna</option>
+      </select>
+    </div>
+
+    <div class="drawer-body">
+      <ul class="drawer-nav-list" id="drawer-nav-list">
+        <!-- 1. Home (Active in drawer) -->
+        <li>
+          <a href="#" class="drawer-item-link drawer-home-link is-active">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+            </svg>
+            <span>Home</span>
+          </a>
+        </li>
+
+        <!-- 2. Sweets Accordion -->
+        <li class="drawer-accordion-item">
+          <button class="drawer-accordion-btn" aria-expanded="false">
+            <span class="drawer-btn-left">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path
+                  d="M18 10h-1.3A5.5 5.5 0 0 0 6.3 10H5a3 3 0 0 0-3 3c0 1.5 1 2.7 2.4 3l1.1 5.5a2 2 0 0 0 2 1.5h9a2 2 0 0 0 2-1.5l1.1-5.5c1.4-.3 2.4-1.5 2.4-3a3 3 0 0 0-3-3z" />
+                <circle cx="12" cy="4" r="2" fill="currentColor" />
+              </svg>
+              <span>Sweets</span>
+            </span>
+            <svg class="drawer-chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+          <ul class="drawer-sub-menu" hidden>
+            <li><a href="#menu-heading">Rasgulla</a></li>
+            <li><a href="#menu-heading">Gulab Jamun</a></li>
+            <li><a href="#menu-heading">Sandesh</a></li>
+            <li><a href="#menu-heading">Mishti Doi</a></li>
+            <li><a href="#menu-heading">Chomchom</a></li>
+          </ul>
+        </li>
+
+        <!-- 3. Cakes Accordion -->
+        <li class="drawer-accordion-item">
+          <button class="drawer-accordion-btn" aria-expanded="false">
+            <span class="drawer-btn-left">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 17h18l-9-9-9 9z" />
+                <path d="M3 17v4h18v-4" />
+                <circle cx="12" cy="5" r="1.5" fill="currentColor" />
+                <path d="M12 6.5v1.5" />
+              </svg>
+              <span>Cakes</span>
+            </span>
+            <svg class="drawer-chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+          <ul class="drawer-sub-menu" hidden>
+            <li><a href="#bestsellers">Chocolate</a></li>
+            <li><a href="#bestsellers">Birthday</a></li>
+            <li><a href="#bestsellers">Wedding</a></li>
+            <li><a href="#bestsellers">Custom Cakes</a></li>
+          </ul>
+        </li>
+
+        <!-- 4. Ice Cream Accordion -->
+        <li class="drawer-accordion-item">
+          <button class="drawer-accordion-btn" aria-expanded="false">
+            <span class="drawer-btn-left">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m7 11 5 11 5-11" />
+                <path d="M12 3a5 5 0 0 0-5 5c0 .7.1 1.4.4 2h9.2c.3-.6.4-1.3.4-2a5 5 0 0 0-5-5z" />
+              </svg>
+              <span>Ice Cream</span>
+            </span>
+            <svg class="drawer-chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+          <ul class="drawer-sub-menu" hidden>
+            <li><a href="#menu-heading">Vanilla</a></li>
+            <li><a href="#menu-heading">Chocolate</a></li>
+            <li><a href="#menu-heading">Mango</a></li>
+            <li><a href="#menu-heading">Kulfi</a></li>
+          </ul>
+        </li>
+
+        <!-- 5. Desserts Accordion -->
+        <li class="drawer-accordion-item">
+          <button class="drawer-accordion-btn" aria-expanded="false">
+            <span class="drawer-btn-left">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 8h16a8 8 0 0 1-8 8 8 8 0 0 1-8-8z" />
+                <path d="M12 16v5" />
+                <path d="M8 21h8" />
+                <circle cx="12" cy="5" r="2" fill="currentColor" />
+              </svg>
+              <span>Desserts</span>
+            </span>
+            <svg class="drawer-chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+          <ul class="drawer-sub-menu" hidden>
+            <li><a href="#menu-heading">Pudding</a></li>
+            <li><a href="#menu-heading">Brownies</a></li>
+            <li><a href="#menu-heading">Cheesecake</a></li>
+            <li><a href="#menu-heading">Pastry</a></li>
+          </ul>
+        </li>
+
+        <!-- 6. About Us -->
+        <li>
+          <a href="#promise-heading" class="drawer-item-link">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+            <span>About Us</span>
+          </a>
+        </li>
+
+        <!-- 7. Contact -->
+        <li>
+          <a href="#newsletter-form" class="drawer-item-link">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+            <span>Contact</span>
+          </a>
+        </li>
+
+        <!-- 8. Gallery -->
+        <li>
+          <a href="#gallery-heading" class="drawer-item-link">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+              <circle cx="9" cy="9" r="2" />
+              <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+            </svg>
+            <span>Gallery</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Cart at bottom of drawer -->
+    <div class="drawer-footer">
+      <a href="#bestsellers" class="drawer-cart-btn" aria-label="View shopping cart">
+        <span class="drawer-cart-left">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="8" cy="21" r="1" />
+            <circle cx="19" cy="21" r="1" />
+            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+          </svg>
+          <span>View Cart</span>
+        </span>
+        <span class="cart-badge" aria-live="polite">0</span>
+      </a>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <!-- ══════════════════════════════════════════════════════════
+     SECTION 1 — HERO
+════════════════════════════════════════════════════════════ -->
+    <section class="hero" aria-label="Hero banner">
+      <div class="container">
+        <div class="hero__content">
+          <p class="hero__eyebrow">
+            <i class="fa-solid fa-star" aria-hidden="true"></i> Sweet Moments, Forever
+          </p>
+          <h1 class="hero__heading">ULTIMATE CHOCOLATE<br>INDULGENCE</h1>
+          <p class="hero__sub">Richly crafted, freshly baked — experience chocolate like never before.</p>
+
+          <div class="hero__cta-row">
+            <a href="#bestsellers" class="btn-primary">
+              ORDER NOW <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+
+            <div class="hero__social-proof">
+              <div class="hero__avatars" aria-hidden="true">
+                <img src="https://i.pravatar.cc/64?img=47" alt="" width="32" height="32" />
+                <img src="https://i.pravatar.cc/64?img=12" alt="" width="32" height="32" />
+                <img src="https://i.pravatar.cc/64?img=32" alt="" width="32" height="32" />
+              </div>
+              <span class="hero__proof-text">10K+ Happy Customers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating product labels (desktop) -->
+      <div class="hero__labels" aria-hidden="true">
+        <div class="hero__label hero__label--truffle">
+          <span class="hero__label-text">
+            <i class="fa-solid fa-cake-candles"></i> Fudge Truffle Cake
+          </span>
+          <span class="hero__label-line"></span>
+        </div>
+        <div class="hero__label hero__label--cupcake">
+          <span class="hero__label-line"></span>
+          <span class="hero__label-text">
+            <i class="fa-solid fa-cupcake"></i> Chocolate Cupcake
+          </span>
+        </div>
+        <div class="hero__label hero__label--brownie">
+          <span class="hero__label-text">
+            <i class="fa-solid fa-cookie"></i> Brownie Delight
+          </span>
+          <span class="hero__label-line"></span>
+        </div>
+        <div class="hero__label hero__label--pastry">
+          <span class="hero__label-line"></span>
+          <span class="hero__label-text">
+            <i class="fa-solid fa-cookie-bite"></i> Chocolate Pastry
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+     SECTION 2 — MENU CATEGORIES
+════════════════════════════════════════════════════════════ -->
+    <section class="section menu-section" aria-labelledby="menu-heading">
+      <div class="container">
+        <h2 class="section-title" id="menu-heading">What Will You Wish For?</h2>
+        <p class="section-sub">Explore our delicious categories</p>
+      </div>
+      <div class="menu-cards-scroll">
+        <div class="container" style="padding-inline:0">
+          <div id="menu-cards-grid"><!-- Populated by JS --></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+     SECTION 3 — BESTSELLERS / TRENDING
+════════════════════════════════════════════════════════════ -->
+    <section class="section bestsellers-section" id="bestsellers" aria-labelledby="bestsellers-heading">
+      <div class="container">
+        <div class="bestsellers-header">
+          <h2 class="bestsellers-title" id="bestsellers-heading">
+            <i class="fa-solid fa-fire" aria-hidden="true"></i> Trending Cakes
+          </h2>
+          <a href="#" class="view-all-link" aria-label="View all cakes">
+            View All Cakes <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+        <p class="section-sub" style="text-align:left;margin-bottom:20px;">Our customers' all-time favourites</p>
+      </div>
+      <div class="products-scroll">
+        <div class="container" style="padding-inline:0">
+          <div id="products-track"><!-- Populated by JS --></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+     SECTION 4 — OUR PROMISE
+════════════════════════════════════════════════════════════ -->
+    <section class="section promise-section" aria-labelledby="promise-heading">
+      <div class="container">
+        <div class="promise-banner">
+          <div class="promise-banner__left">
+            <p class="promise-banner__eyebrow">
+              <i class="fa-solid fa-heart" aria-hidden="true"></i> Why Choose Us?
+            </p>
+            <h2 id="promise-heading">We Bake <span>Happiness</span><br>in Every Bite</h2>
+          </div>
+          <div id="promises-grid"><!-- Populated by JS --></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+     SECTION 5 — MAGICAL TICKET COUPON BANNER
+════════════════════════════════════════════════════════════ -->
+    <section class="ticket-section" aria-label="Special offer">
+      <div class="container">
+        <div class="ticket" role="complementary" aria-label="Special offer: 15% off">
+          <div class="ticket__blob ticket__blob--1" aria-hidden="true"></div>
+          <div class="ticket__blob ticket__blob--2" aria-hidden="true"></div>
+          <div class="ticket__divider" aria-hidden="true"></div>
+
+          <!-- Left -->
+          <div>
+            <span class="ticket__badge">
+              <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Special Offer
+            </span>
+            <p class="ticket__heading">The Magical Ticket</p>
+            <p class="ticket__offer">Get 15% OFF</p>
+            <p class="ticket__sub">on your very first order — no minimum spend!</p>
+          </div>
+
+          <!-- Right -->
+          <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;">
+            <div class="ticket__code-box">
+              <div class="ticket__code-label">
+                <i class="fa-solid fa-ticket" aria-hidden="true"></i> Use Code:
+              </div>
+              <div>BAKE15</div>
+            </div>
+            <a href="#" class="ticket__btn" aria-label="Unlock 15% off with code BAKE15">
+              UNLOCK NOW <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+     SECTION 6 — SOCIAL GALLERY
+════════════════════════════════════════════════════════════ -->
+    <section class="section gallery-section" aria-labelledby="gallery-heading">
+      <div class="container">
+        <h2 class="section-title" id="gallery-heading">
+          What's In Your Heart? <i class="fa-solid fa-heart" aria-hidden="true" style="color:var(--red)"></i>
+        </h2>
+        <p class="section-sub">Real moments shared by our community</p>
+      </div>
+      <div class="gallery-scroll">
+        <div class="container" style="padding-inline:0">
+          <div id="gallery-track"><!-- Populated by JS --></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+     SECTION 7 — TESTIMONIALS
+════════════════════════════════════════════════════════════ -->
+    <section class="section testimonials-section" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <h2 class="section-title" id="testimonials-heading">
+          <i class="fa-solid fa-star" aria-hidden="true" style="color:#f59e0b"></i> What Our Customers Say
+        </h2>
+        <p class="section-sub">Real reviews from real cake lovers</p>
+      </div>
+      <div class="testimonials-scroll">
+        <div class="container" style="padding-inline:0">
+          <div id="testimonials-track"><!-- Populated by JS --></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+     SECTION 8 — TRUST LINE
+════════════════════════════════════════════════════════════ -->
+    <section class="trust-section" aria-labelledby="trust-heading">
+      <div class="container">
+        <button class="trust-toggle-btn" id="trust-toggle-btn" aria-expanded="false" aria-controls="trust-content">
+          <span>
+            <span class="trust-label" id="trust-heading">
+              <i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Certified, Safe &amp; Trusted
+            </span>
+            <span class="trust-certs"> — FSSAI Licensed · ISO 22000 · Hygiene Audited · 100% Veg Options
+              Available</span>
+          </span>
+          <i class="fa-solid fa-chevron-down trust-arrow" aria-hidden="true"></i>
+        </button>
+        <div id="trust-content" hidden>
+          <p>We hold all major food safety certifications and take hygiene seriously at every step of our baking
+            process.</p>
+          <ul>
+            <li>FSSAI License No. 10020042001234</li>
+            <li>ISO 22000:2018 Food Safety Management Certified</li>
+            <li>Monthly independent hygiene audits</li>
+            <li>100% vegetarian ingredients with halal options available</li>
+            <li>No artificial preservatives in any product</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+
+    <!-- Newsletter -->
+    <div class="footer-newsletter">
+      <div class="container footer-newsletter__inner">
+        <div>
+          <h3>
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i> Subscribe to Our Newsletter
+          </h3>
+          <p>Get updates on new cakes, special offers and more!</p>
+        </div>
+        <form id="newsletter-form" novalidate aria-label="Newsletter signup">
+          <label for="newsletter-email" class="sr-only">Your email address</label>
+          <input id="newsletter-email" type="email" placeholder="Enter your email address" required
+            autocomplete="email" />
+          <button type="submit" aria-label="Subscribe to newsletter">
+            Subscribe <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer main -->
+    <div class="footer-main">
+      <div class="container footer-main__inner">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <i class="fa-solid fa-cake-candles" aria-hidden="true"></i> [YOUR BRAND<span> NAME</span>]
+          </div>
+          <p class="footer-tagline">Sweetness in every moment, freshly baked with love.</p>
+          <nav class="footer-social" aria-label="Social media links">
+            <a href="#" aria-label="Follow us on Facebook"><i class="fa-brands fa-facebook-f"
+                aria-hidden="true"></i></a>
+            <a href="#" aria-label="Follow us on Instagram"><i class="fa-brands fa-instagram"
+                aria-hidden="true"></i></a>
+            <a href="#" aria-label="Follow us on YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Follow us on Pinterest"><i class="fa-brands fa-pinterest-p"
+                aria-hidden="true"></i></a>
+          </nav>
+        </div>
+
+        <!-- Link columns -->
+        <nav id="footer-link-cols" aria-label="Footer navigation"><!-- Populated by JS --></nav>
+
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <div class="container">
+        &copy; 2026 [YOUR BRAND NAME]. All rights reserved. Made with <span><i class="fa-solid fa-heart"
+            aria-hidden="true"></i></span> for cake lovers.
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll-to-top -->
+  <button id="scroll-top-btn" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- SR-only utility -->
+  <style>
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  <!-- Data & Images must load before main.js -->
+  <script src="js/images.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    /* Show location selector only on desktop */
+    (function () {
+      function checkDesktop() {
+        const wrap = document.getElementById('location-wrap-desktop');
+        if (wrap) wrap.style.display = window.innerWidth >= 768 ? 'block' : 'none';
+      }
+      checkDesktop();
+      window.addEventListener('resize', checkDesktop);
+    })();
+
+    /* Scroll-to-top visibility */
+    (function () {
+      const btn = document.getElementById('scroll-top-btn');
+      if (!btn) return;
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+
+</html>
